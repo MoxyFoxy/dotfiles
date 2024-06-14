@@ -44,6 +44,7 @@
 
           ./modules
           ./theme
+          ./kde
 
           ./home.nix
         ];
