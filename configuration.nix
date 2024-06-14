@@ -106,6 +106,8 @@
     home-manager
     wget
     git
+    gh
+    neofetch
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -134,6 +136,11 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  system.autoUpgrade.enabled = true;
+  system.copySystemConfiguration = true;
+
+  systemd.extraConfig = "DefaultTimeoutStopSec=10s";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
