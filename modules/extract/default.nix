@@ -1,4 +1,4 @@
-{ lib, withUnzip ? true, unzip, glibcLocalesUtf8 }:
+{ lib, withUnzip ? true, unzip, glibcLocalesUtf8, mkDerivation, ... }:
 
 {
   source ? ""
@@ -8,8 +8,7 @@
 assert (source != "") -> abort "Source cannot be empty.";
 assert (destination != "") -> abort "Destination cannot be empty.";
 
-with import <nixpkgs> { };
-stdenv.mkDerivation {
+mkDerivation {
   inherit source destination;
 
   name = "extract";

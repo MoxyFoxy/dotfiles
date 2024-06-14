@@ -1,5 +1,5 @@
+{ ... }:
+
 {
-  flake.nixosModules = {
-    extract = import ./extract;
-  };
+  imports = [ ./extract ];
 }
