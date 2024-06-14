@@ -1,0 +1,1 @@
+<Error><Code>SignatureDoesNotMatch</Code><Message>The request signature we calculated does not match the signature you provided. Check your key and signing method.</Message><Resource>ocs-dl/data/files/1709674220/Catppuccin-Latte-Pink-Cursors.zip</Resource><RequestId>not available</RequestId></Error>

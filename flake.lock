@@ -1,11 +1,24 @@
 {
   "nodes": {
+    "catnerd": {
+      "locked": {
+        "lastModified": 1716997466,
+        "narHash": "sha256-7Hhmhk0/j4Eg0KDkryU6M/6yZbwXj8Moqa3VM7K8K5s=",
+        "owner": "ElliottSullingeFarrall",
+        "repo": "catnerd",
+        "rev": "e68c550a9470110df42aad12f1d155e4fe2a41ac",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ElliottSullingeFarrall",
+        "repo": "catnerd",
+        "type": "github"
+      }
+    },
     "firefox-addons": {
       "inputs": {
         "flake-utils": "flake-utils",
-        "nixpkgs": [
-          "nixpkgs"
-        ]
+        "nixpkgs": "nixpkgs"
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
@@ -60,6 +73,22 @@
     },
     "nixpkgs": {
       "locked": {
+        "lastModified": 1718149104,
+        "narHash": "sha256-Ds1QpobBX2yoUDx9ZruqVGJ/uQPgcXoYuobBguyKEh8=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "e913ae340076bbb73d9f4d3d065c2bca7caafb16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
         "lastModified": 1717974879,
         "narHash": "sha256-GTO3C88+5DX171F/gVS3Qga/hOs/eRMxPFpiHq2t+D8=",
         "owner": "nixos",
@@ -74,11 +103,36 @@
         "type": "github"
       }
     },
+    "plasma-manager": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718299582,
+        "narHash": "sha256-XHncuv56N++i4la5n3lH2P8dz8kOCvOdbNFT2p8SnHI=",
+        "owner": "pjones",
+        "repo": "plasma-manager",
+        "rev": "4d5b25e9281e466bf7e190f9107a28189300d9bb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pjones",
+        "repo": "plasma-manager",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "catnerd": "catnerd",
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs_2",
+        "plasma-manager": "plasma-manager"
       }
     }
   },
