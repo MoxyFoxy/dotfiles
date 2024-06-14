@@ -17,7 +17,7 @@
     };
 
     firefox-addons.url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-    catnerd.url = "github:ElliottSullingeFarrall/catnerd";
+    catnerd.url = "github:MoxyFoxy/catnerd";
   };
 
   outputs = { nixpkgs, home-manager, plasma-manager, catnerd, ... }@inputs:
@@ -42,7 +42,7 @@
           plasma-manager.homeManagerModules.plasma-manager
           catnerd.homeManagerModules.catnerd
 
-          ./modules
+          #./modules
           ./theme
 
           ./home.nix
