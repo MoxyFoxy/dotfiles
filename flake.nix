@@ -28,7 +28,7 @@
       homeConfigurations.eve = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
-        extraSpecialArgs = { inherit inputs pkgs home-manager; };
+        extraSpecialArgs = { inherit inputs pkgs home-manager builtins; };
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
@@ -42,7 +42,7 @@
           plasma-manager.homeManagerModules.plasma-manager
           catnerd.homeManagerModules.catnerd
 
-          ./modules
+          #./modules
           ./theme
           ./kde
 

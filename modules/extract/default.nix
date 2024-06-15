@@ -1,40 +1,47 @@
-{ lib, withUnzip ? true, unzip, glibcLocalesUtf8, mkDerivation, ... }:
+{ lib, config, pkgs, withUnzip ? true, unzip, glibcLocalesUtf8, mkDerivation, ... }:
 
 with lib;
 let
-  extract = { source, destination, mkDerivation }:
-    mkDerivation {
-      inherit source destination;
+  extract = { source, stdenv }:
+    stdenv.mkDerivation {
       name = "extract";
       version = "1.0";
-      builder = ./builder.sh;
+      src = source;
+      inherit source;
+      #builder = ./builder.sh;
+
+      phases = [ "buildPhase" ];
+
+      buildPhase = ''
+      mkdir -p $out
+      cd $out
+      unpackFile $src
+      '';
     };
 
   extractModule = { mkDerivation, ... }: {
     options = {
       source = lib.mkOption {
         description = "Source Archive";
-        type = lib.types.str;
+        type = lib.types.path;
       };
       destination = lib.mkOption {
         description = "Destination Folder";
         type = lib.types.str;
       };
     };
-
-    config = {
-      derivation = extract { source = source; destination = destination; mkDerivation = mkDerivation; };
-    };
   };
 in
 {
-  options = {
+  options.util = {
     extract = lib.mkOption {
       type = lib.types.attrsOf ( lib.types.submodule extractModule );
     };
   };
 
-  #config = {
-  #  _ = lib.mapAttrs ( name: value: extract value.source value.destination mkDerivation ) { source = config.source; destination = config.destination; };
-  #};
+  config = {
+    home.file = lib.mapAttrs' ( name: config: lib.nameValuePair "${config.destination}/${name}" {
+      source = pkgs.callPackage extract { inherit ( config ) source; };
+    }) config.util.extract;
+  };
 }
